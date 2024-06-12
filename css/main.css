@@ -1,0 +1,27 @@
+
+body{
+
+    background-color: rgb(51, 116, 214);
+}
+
+h1{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: x-large;
+    
+}
+
+h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial;
+    color: rgb(43, 226, 217);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
