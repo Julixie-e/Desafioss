@@ -1,45 +1,83 @@
+const container_books = document.getElementById('container_books');
+const counter_cart = document.getElementById('counter_cart');
+const container_cart = document.getElementById('container_cart');
+const clear_cart = document.getElementById('clear_cart');
 
-let titulo =document.getElementById ("titulo")
-titulo.style.color = "red";
-titulo.style.fontSize = "24px";
+const cart = [];
 
-const productos = [ "Camisa", "Zapatillas", "Bufanda", "Gorra", "Pantalón" ];
-
-for (const producto of productos) {  
-    
-const contenedorProducto = document.createElement ("div")
-const h2 = document.createElement ("h2")
-
-h2.innerHTML = producto;
-document.body.appendChild (h2)
+clear_cart.addEventListener('click', cartClear);
 
 
+getBooks();
 
-let boton = document.createElement("button");
+function getBooks() {
+    books.forEach(item => {
+        const content_book = document.createElement('div');
+        content_book.classList.add('card');
+        content_book.innerHTML = `
+            <h1>${item.title}</h1>
+            <img src="${item.image}" alt="${item.title}">
+            <p>${item.author}</p>
+            <p>${item.year}</p>
+            <button class="btn_add-to-cart" value="${item.id}">Agregar al carrito</button>
+        `;
+        container_books.appendChild(content_book);
+    });
 
-boton.innerHTML = "Agregar al carrito";
+    const addToCartButtons = document.querySelectorAll('.btn_add-to-cart');
 
-boton.id = "boton-" + producto.toLowerCase().replace(" ", "-");
-
-
-boton.addEventListener ("click",function() {
-
-    boton.innerHTML = "agregado";
-    
-    let mensaje = document.createElement ( "h3")
-    mensaje.textContent = " Agregado";
-
-    contenedorProducto.appendChild (mensaje)
-
+    addToCartButtons.forEach(item => {
+        item.addEventListener('click', addToCart);
+    });
 }
 
-)
-contenedorProducto.appendChild (boton);
+function addToCart(event) {
+    const bookId = event.target.value;
 
-document.body.appendChild(contenedorProducto)
+    const book = books.find(book => book.id === parseInt(bookId));
 
+    if (book) {
+        cart.push(book);
+        counter_cart.innerText = cart.length;
+        cartDisplay(book);
+    }
 }
 
+function cartDisplay(product) {
+    const cart_book = document.createElement('div');
+    cart_book.classList.add('card');
+    cart_book.innerHTML = `
+        <h1>${product.title}</h1>
+        <img src="${product.image}" alt="${product.title}">
+        <p>${product.author}</p>
+        <p>${product.year}</p>
+        <button class="btn_remove-from-cart" value="${product.id}">Eliminar</button>
+    `;
 
+    const removeButton = cart_book.querySelector('.btn_remove-from-cart');
 
+    removeButton.addEventListener('click', removeItemCart);
 
+    container_cart.appendChild(cart_book);
+}
+
+function cartClear() {
+    cart.length = 0;
+    counter_cart.innerText = '0';
+    container_cart.innerHTML = '';
+}
+
+function removeItemCart(event) {
+    const bookId = event.target.value;
+
+    const index = cart.findIndex(book => book.id === parseInt(bookId));
+
+    if (index !== -1) {
+        cart.splice(index, 1);
+        counter_cart.innerText = cart.length;
+        container_cart.innerHTML = '';
+        cart.forEach(item => {
+            cartDisplay(item);
+        });
+    }
+}

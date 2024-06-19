@@ -1,27 +1,174 @@
 
 body{
 
-    background-color: rgb(51, 116, 214);
+    background-color: rgb(213, 161, 226);
 }
 
-h1{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Añadido para incluir el borde en el cálculo del tamaño total */
+}
+
+header {
+    background: rgb(116, 116, 218);
+    display: flex;
+    justify-content: space-around;
+    height: 80px;
+    align-items: center;
+    position: sticky;
+    color: white;
+    top: 0;
+}
+
+.button {
+    position: relative;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: rgb(141, 37, 167);
+    overflow: hidden;
+}
+
+.button, .button__icon, .button__text {
+    transition: all 0.3s;
+}
+
+.button .button__text {
+    transform: translateX(32px);
+    color: #fff;
+    font-weight: 600;
+}
+
+#container_books {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.card {
+    width: 200px;
+    height: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: x-large;
-    
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial;
-    color: rgb(43, 226, 217);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
 }
 
-div {
+.card h1 {
+    font-size: 1rem; /* Aumentado el tamaño del título */
+    margin-bottom: 0.5rem; /* Espaciado inferior reducido */
+}
+
+.card p {
+    font-size: 0.8rem; /* Reducido el tamaño del texto */
+    margin-bottom: 0.5rem; /* Espaciado inferior reducido */
+}
+
+/* Estilo del modal */
+.modal {
+    display: none; /* Por defecto, oculto */
+    position: fixed; /* Permite que el modal flote sobre el contenido */
+    z-index: 1; /* Ubicación en el eje Z para estar encima del resto del contenido */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+    overflow: auto; /* Habilita el desplazamiento si el contenido es demasiado grande para el modal */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centrado vertical y horizontalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho del contenido del modal */
+}
+
+/* Estilo para el botón de cerrar */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo para el botón de vaciar carrito */
+#clear_cart {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#clear_cart:hover {
+    background-color: #d32f2f;
+}
+
+/* Estilo para el contenedor del carrito */
+#container_cart {
+    margin-top: 20px;
+}
+
+/* Estilo para cada artículo del carrito */
+.cart-item {
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+    width: 80px; /* Tamaño de la imagen del artículo */
+    height: 80px;
+    margin-right: 20px; /* Espacio entre la imagen y el texto */
+    border-radius: 4px;
+}
+
+.cart-item .item-details {
+    flex: 1; /* Permite que este div ocupe el espacio restante */
+}
+
+.cart-item .item-details h4 {
+    margin: 0;
+    font-size: 18px; /* Tamaño del título del artículo */
+}
+
+.cart-item .item-details p {
+    margin: 5px 0;
+    font-size: 14px; /* Tamaño del texto adicional del artículo */
+}
+
+.cart-item .item-details .item-price {
+    font-weight: bold;
+    color: #687adf; /* Color del precio del artículo */
 }

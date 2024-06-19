@@ -3,13 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/main.css">
-    <title>Document</title>
+    <title>libros.com</title>
 </head>
+
 <body>
-   <h1 id="titulo">PRODUCTOS</h1>
    
+  <header>
+    <h1>LIBROS</h1>
+
+    <div>
+        <i class='bx bx-cart-add' id="cart">
+        </i>
+    <span id="counter_cart">0</span>
+    </div>
+</header>
+
+<div id="container_books"></div>
+
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <button id="clear_cart">vaciar carrito</button>
+        <div id="container_cart">
+
+        </div>
+    </div>
+</div>
+
+
+
  <script src="js/main.js"></script>
+ <script src="data/data.js"></script>
     
 </body>
 </html>
