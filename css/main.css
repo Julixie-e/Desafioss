@@ -29,7 +29,7 @@ header {
     display: flex;
     align-items: center;
     border: none;
-    background-color: rgb(141, 37, 167);
+    background-color: rgb(192, 92, 218);
     overflow: hidden;
 }
 
@@ -39,7 +39,7 @@ header {
 
 .button .button__text {
     transform: translateX(32px);
-    color: #fff;
+    color: #87d8ca;
     font-weight: 600;
 }
 
@@ -49,15 +49,17 @@ header {
     justify-content: center;
     gap: 2rem;
     margin-top: 3rem;
+    color: rgb(255, 240, 252);
 }
+
 
 .card {
     width: 200px;
     height: auto;
-    border: 1px solid #ddd;
+    border: 1px solid #8091df;
     padding: 10px;
     text-align: center;
-    background-color: #f9f9f9;
+    background-color: #85a4dd;
     border-radius: 4px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -69,16 +71,19 @@ header {
 }
 
 .card h1 {
-    font-size: 1rem; /* Aumentado el tamaño del título */
-    margin-bottom: 0.5rem; /* Espaciado inferior reducido */
+    font-size: 1rem; 
+    margin-bottom: 0.5rem;
 }
 
 .card p {
-    font-size: 0.8rem; /* Reducido el tamaño del texto */
-    margin-bottom: 0.5rem; /* Espaciado inferior reducido */
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem; 
 }
 
+
+
 /* Estilo del modal */
+/* Estilos para el modal */
 .modal {
     display: none; /* Por defecto, oculto */
     position: fixed; /* Permite que el modal flote sobre el contenido */
@@ -102,18 +107,20 @@ header {
 
 /* Estilo para el botón de cerrar */
 .close {
-    color: #aaa;
+    color: #ebc5b3;
     float: right;
     font-size: 28px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
     color: black;
     text-decoration: none;
-    cursor: pointer;
 }
+
+
 
 /* Estilo para el botón de vaciar carrito */
 #clear_cart {
@@ -144,7 +151,7 @@ header {
     display: flex;
     align-items: center;
     padding: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #7eb4e7;
 }
 
 .cart-item img {
@@ -164,11 +171,12 @@ header {
 }
 
 .cart-item .item-details p {
-    margin: 5px 0;
+    margin: 15px 0;
     font-size: 14px; /* Tamaño del texto adicional del artículo */
 }
 
 .cart-item .item-details .item-price {
     font-weight: bold;
-    color: #687adf; /* Color del precio del artículo */
+    color: #9585db; /* Color del precio del artículo */
 }
+

@@ -82,7 +82,7 @@ const books = [
     },
   ];
   
-  module.exports = books;
+  window.books = books;
   
 
 
